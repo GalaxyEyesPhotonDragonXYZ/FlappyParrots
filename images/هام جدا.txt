@@ -1,0 +1,9 @@
+images/
+│── backgrounds_sheet.png
+│── birds_select_sheet.png
+│── birds_fly_sheet.png
+│── pipes_sheet.png
+│── ui_sheet.png
+│── medals_sheet.png
+│── clouds_sheet.png
+│── logo.png
