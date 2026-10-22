@@ -31,7 +31,6 @@ function loadAssets() {
   loadImage('birdsFly2', 'images/birds_fly_sheet2.png');
   loadImage('pipes', 'images/pipes_sheet.png');
   loadImage('ui', 'images/ui_sheet.png');
-  loadImage('clouds', 'images/clouds_sheet.png');
   loadImage('effects', 'images/effects_sheet.png');
   loadImage('logo', 'images/logo.png');
   Object.entries(AUDIO_FILES).forEach(([name, path]) => {
@@ -103,8 +102,8 @@ let previous = performance.now();
 let flapFrameTime = 0;
 
 const text = {
-  en: { title: 'FLAPPY PARROTS', start: 'START', birds: 'BIRDS', settings: 'SETTINGS', stats: 'STATS', howToPlay: 'HOW TO PLAY', choose: 'CHOOSE YOUR BIRD', back: 'BACK', locked: 'Reach {score}', easy: 'EASY', normal: 'NORMAL', hard: 'HARD', sound: 'SOUND', extras: 'BONUS ITEMS', on: 'ON', off: 'OFF', language: 'العربية', score: 'SCORE', best: 'BEST', tap: 'Tap / Space to fly', paused: 'PAUSED', resume: 'RESUME', menu: 'MENU', over: 'GAME OVER', again: 'PLAY AGAIN', unlocked: 'NEW BIRD UNLOCKED!', total: 'TOTAL SCORE', plays: 'GAMES PLAYED', shield: 'Shield: 5 seconds of safety', bonusStar: 'Risk Star: +3 points', glide: 'Feather: slow fall for 5 seconds', bomb: 'Bomb: destroys 3 pipes and gives +15% speed for 3 seconds', squawk: 'Squawk: collectible once, prevents death once, and pauses for 3 seconds', slow: 'Wind: slows pipes for 4 seconds', guideMove: 'Tap, click, Space, or Up to flap.', guideAvoid: 'Pass through pipe gaps to score.', guideExtras: 'Bonus items are optional and can be disabled in Settings.', contact: 'Contact: 201006791731' },
-  ar: { title: 'فلاپي باروتس', start: 'ابدأ', birds: 'الطيور', settings: 'الإعدادات', stats: 'الإحصائيات', howToPlay: 'طريقة اللعب', choose: 'اختر طائرك', back: 'رجوع', locked: 'حقق {score}', easy: 'سهل', normal: 'عادي', hard: 'صعب', sound: 'الصوت', extras: 'العناصر الإضافية', on: 'تشغيل', off: 'إيقاف', language: 'English', score: 'النتيجة', best: 'الأفضل', tap: 'المس الشاشة أو Space للطيران', paused: 'إيقاف مؤقت', resume: 'استمرار', menu: 'القائمة', over: 'انتهت اللعبة', again: 'العب مجددًا', unlocked: 'تم فتح طائر جديد!', total: 'إجمالي النقاط', plays: 'عدد الجولات', shield: 'درع: حماية لمدة 5 ثوانٍ', bonusStar: 'نجمة مخاطرة: +3 نقاط', glide: 'ريشة: سقوط أبطأ لمدة 5 ثوانٍ', bomb: 'قنبلة: تدمر 3 أنابيب وتزيد السرعة 15% لمدة 3 ثوانٍ', squawk: 'صرخة العودة: تمنع الموت مرة واحدة وتتوقف لمدة 3 ثوانٍ ويمكن حمل واحدة فقط', slow: 'رياح: تبطئ الأنابيب 4 ثوانٍ', guideMove: 'المس أو انقر أو اضغط Space أو ↑ للرفرفة.', guideAvoid: 'مر بين فجوات الأنابيب لتحصل على النقاط.', guideExtras: 'العناصر الإضافية اختيارية ويمكن إيقافها من الإعدادات.', contact: 'للتواصل: 201006791731' }
+  en: { title: 'FLAPPY PARROTS', start: 'START', birds: 'BIRDS', settings: 'SETTINGS', stats: 'STATS', howToPlay: 'HOW TO PLAY', choose: 'CHOOSE YOUR BIRD', back: 'BACK', locked: 'Reach {score}', easy: 'EASY', normal: 'NORMAL', hard: 'HARD', sound: 'SOUND', extras: 'BONUS ITEMS', on: 'ON', off: 'OFF', language: 'العربية', score: 'SCORE', best: 'BEST', tap: 'Tap / Space to fly', paused: 'PAUSED', resume: 'RESUME', menu: 'MENU', over: 'GAME OVER', again: 'PLAY AGAIN', unlocked: 'NEW BIRD UNLOCKED!', total: 'TOTAL SCORE', plays: 'GAMES PLAYED', shield: 'Shield: 5 seconds of safety', bonusStar: 'Risk Star: +3 points', glide: 'Feather: slow fall for 5 seconds', bomb: 'Bomb: destroys 3 pipes and gives +15% speed for 3 seconds', squawk: 'Squawk: collectible once, prevents death once, and pauses for 3 seconds', slow: 'Wind: slows pipes for 4 seconds', guideMove: 'Tap, click, Space, or Up to flap.', guideAvoid: 'Pass through pipe gaps to score.', guideExtras: 'Bonus items are optional and can be disabled in Settings.'},
+  ar: { title: 'فلاپي باروتس', start: 'ابدأ', birds: 'الطيور', settings: 'الإعدادات', stats: 'الإحصائيات', howToPlay: 'طريقة اللعب', choose: 'اختر طائرك', back: 'رجوع', locked: 'حقق {score}', easy: 'سهل', normal: 'عادي', hard: 'صعب', sound: 'الصوت', extras: 'العناصر الإضافية', on: 'تشغيل', off: 'إيقاف', language: 'English', score: 'النتيجة', best: 'الأفضل', tap: 'المس الشاشة أو Space للطيران', paused: 'إيقاف مؤقت', resume: 'استمرار', menu: 'القائمة', over: 'انتهت اللعبة', again: 'العب مجددًا', unlocked: 'تم فتح طائر جديد!', total: 'إجمالي النقاط', plays: 'عدد الجولات', shield: 'درع: حماية لمدة 5 ثوانٍ', bonusStar: 'نجمة مخاطرة: +3 نقاط', glide: 'ريشة: سقوط أبطأ لمدة 5 ثوانٍ', bomb: 'قنبلة: تدمر 3 أنابيب وتزيد السرعة 15% لمدة 3 ثوانٍ', squawk: 'صرخة العودة: تمنع الموت مرة واحدة وتتوقف لمدة 3 ثوانٍ ويمكن حمل واحدة فقط', slow: 'رياح: تبطئ الأنابيب 4 ثوانٍ', guideMove: 'المس أو انقر أو اضغط Space أو ↑ للرفرفة.', guideAvoid: 'مر بين فجوات الأنابيب لتحصل على النقاط.', guideExtras: 'العناصر الإضافية اختيارية ويمكن إيقافها من الإعدادات.'}
 };
 const t = (key, params = {}) => Object.entries(params).reduce((value, [name, replacement]) => value.replace(`{${name}}`, replacement), text[save.language][key] || key);
 const isAr = () => save.language === 'ar';
@@ -147,6 +146,23 @@ function destroyUpcomingPipes(count) {
   });
   return removed;
 }
+function destroyPreviousPipe() {
+  let targetIndex = -1;
+  let closestDistance = Infinity;
+  game.pipes.forEach((pipe, index) => {
+    const distance = game.bird.x - (pipe.x + 58);
+    if (distance >= 0 && distance < closestDistance) {
+      closestDistance = distance;
+      targetIndex = index;
+    }
+  });
+  if (targetIndex < 0) return false;
+  const pipe = game.pipes[targetIndex];
+  emitEffect('burst', pipe.x + 29, pipe.middle, 8);
+  playSound('explosion', 520);
+  game.pipes.splice(targetIndex, 1);
+  return true;
+}
 function collectItem(item) {
   if (item.type === 'shield') { game.shield = 5; emitEffect('shield', item.x, item.y, 10); }
   if (item.type === 'star') { game.score += 3; emitEffect('spark', item.x, item.y, 14); playSound('point', 920); }
@@ -181,6 +197,7 @@ function die() {
     save.squawk = Math.max(0, save.squawk - 1);
     persist();
     destroyUpcomingPipes(1);
+    destroyPreviousPipe();
     // pause the game for 3 seconds and play squawk sound
     game.running = false; game.countdown = 3; emitEffect('spark', game.bird.x, game.bird.y, 12); playSound('squawk', 760);
     return;
@@ -401,7 +418,7 @@ function drawShield() {
   else { ctx.strokeStyle = '#a776ff'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(game.bird.x, game.bird.y, pulse - 5, 0, Math.PI * 2); ctx.stroke(); }
   ctx.restore();
 }
-function drawFooter() { label('Mostafa Alazazy 2026 · All rights preserved', W / 2, H - 39, 12, '#f7edc1'); label(t('contact'), W / 2, H - 18, 12, '#f7edc1'); }
+function drawFooter() { label('Mostafa Alazazy 2026 · All rights preserved', W / 2, H - 39, 12, '#f7edc1'); }
 function drawBombFlash() {
   const source = SPRITES.effects.bomb;
   if (!ASSETS.effects) return;

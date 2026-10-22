@@ -23,7 +23,6 @@ The included sheets are loaded from `images/` and are used directly by the game:
 - `birds_fly_sheet.png`
 - `pipes_sheet.png`
 - `ui_sheet.png`
-- `clouds_sheet.png`
 - `effects_sheet.png`
 - `logo.png`
 
